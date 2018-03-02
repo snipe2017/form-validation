@@ -1,0 +1,358 @@
+ 
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<!-- Necessary-JavaScript-File-For-Bootstrap -->
+<!-- //js -->
+<!-- Baneer-js -->
+<script src="js/responsiveslides.min.js"></script>
+
+<!-- //Baneer-js -->
+<!-- Popup-js -->
+<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<script>
+  $(document).ready(function () {
+    $('.popup-with-zoom-anim').magnificPopup({
+      type: 'inline',
+      fixedContentPos: false,
+      fixedBgPos: true,
+      overflowY: 'auto',
+      closeBtnInside: true,
+      preloader: false,
+      midClick: true,
+      removalDelay: 300,
+      mainClass: 'my-mfp-zoom-in'
+    });
+
+  });
+
+</script>
+<!-- //Popup-js -->
+<!-- Owl-Carousel-JavaScript -->
+<script src="js/owl.carousel.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#owl-demo").owlCarousel({
+      items: 3,
+      lazyLoad: true,
+      autoPlay: true,
+      pagination: true,
+    });
+  });
+
+</script>
+<!-- //Owl-Carousel-JavaScript -->
+<!-- For-Gallery-js -->
+<script src="js/jquery.viewbox.min.js"></script>
+<script>
+  $(function () {
+
+    $('.thumbnail').viewbox();
+    $('.thumbnail-2').viewbox();
+
+    (function () {
+      var vb = $('.popup-link').viewbox();
+      $('.popup-open-button').click(function () {
+        vb.trigger('viewbox.open');
+      });
+      $('.close-button').click(function () {
+        vb.trigger('viewbox.close');
+      });
+    })();
+
+    (function () {
+      var vb = $('.popup-steps').viewbox({
+        navButtons: false
+      });
+
+      $('.steps-button').click(function () {
+        vb.trigger('viewbox.open', [0]);
+      });
+
+      $('.next-button').click(function () {
+        vb.trigger('viewbox.open', [1]);
+      });
+      $('.prev-button').click(function () {
+        vb.trigger('viewbox.open', [0]);
+      });
+      $('.ok-button').click(function () {
+        vb.trigger('viewbox.close');
+      });
+    })();
+
+  });
+
+</script>
+<!-- //For-Gallery-js -->
+<!-- Flexslider-js for-testimonials -->
+<script type="text/javascript">
+  $(window).load(function () {
+    $("#flexiselDemo1").flexisel({
+      visibleItems: 1,
+      animationSpeed: 1000,
+      autoPlay: false,
+      autoPlaySpeed: 3000,
+      pauseOnHover: true,
+      enableResponsiveBreakpoints: true,
+      responsiveBreakpoints: {
+        portrait: {
+          changePoint: 480,
+          visibleItems: 1
+        },
+        landscape: {
+          changePoint: 640,
+          visibleItems: 1
+        },
+        tablet: {
+          changePoint: 768,
+          visibleItems: 1
+        }
+      }
+    });
+
+  });
+
+</script>
+
+<script>
+  $(function () {
+
+    $(document).on('scroll', function () {
+
+      if ($(window).scrollTop() > 100) {
+        $('.scroll-top-wrapper').addClass('show');
+      } else {
+        $('.scroll-top-wrapper').removeClass('show');
+      }
+    });
+  });
+
+</script>
+<script>
+  $(function () {
+
+    $(document).on('scroll', function () {
+
+      if ($(window).scrollTop() > 100) {
+        $('.scroll-top-wrapper').addClass('show');
+      } else {
+        $('.scroll-top-wrapper').removeClass('show');
+      }
+    });
+
+    $('.scroll-top-wrapper').on('click', scrollToTop);
+  });
+
+  function scrollToTop() {
+    verticalOffset = typeof (verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $('body');
+    offset = element.offset();
+    offsetTop = offset.top;
+    $('html, body').animate({
+      scrollTop: offsetTop
+    }, 500, 'linear');
+  }
+
+</script>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+<!-- //Flexslider-js for-testimonials -->
+<script type="application/x-javascript">
+  addEventListener("load", function () {
+    setTimeout(hideURLbar, 0);
+  }, false);
+
+  function hideURLbar() {
+    window.scrollTo(0, 1);
+  }
+
+</script>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function ($) {
+    $(".scroll").click(function (event) {
+      event.preventDefault();
+      $('html,body').animate({
+        scrollTop: $(this.hash).offset().top
+      }, 1000);
+    });
+  });
+
+</script>
+<script>
+  $("#signin").on("click", function () {
+    $('#myModal1').modal('hide');
+  });
+  //trigger next modal
+  $("#signin").on("click", function () {
+    $('#myModal2').modal('show');
+  });
+
+  $("#signin1").on("click", function () {
+    $('#myModal3').modal('show');
+  });
+
+  $("#signin2").on("click", function () {
+    $('#myModal3').modal('show');
+  });
+
+</script>
+<!--slider -->
+
+<div class="slider">
+	<div class="callbacks_container">
+		<ul class="rslides" id="slider">
+			<li>
+				<div class="w3layouts-banner-top w3layouts-banner-top1">
+					<div class="container">
+						<div class="slider-info">
+							
+							
+						</div>
+					</div>
+				</div>
+			</li>
+			
+		</ul>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<!-- slider -->
+<!--   ---------------------body part-------------------- -->
+
+
+  <!--question-ans-->
+	<br>
+<!-- Center Column -->
+<div id="centerCol" class="left" >
+
+  <!-- Left Inner Column -->
+  <div id="leftColInner" class="left">
+      
+  <!-- Top Section -->
+  <div class="topSection">
+  <div class="introBox">
+  <div class="mainBox">
+  </div>                       
+  </div>
+ </div>
+  
+  <!-- Welcome Message Box -->
+  
+  
+  
+  <!-- / Top Section -->
+  
+  <!-- Recent / Popular Questions Section -->
+  <div id="tabWidget1">
+  <!-- Navigation Tabs -->
+  <div id="wTabs1">
+  <ul>
+  <li class="on"><a href="javascript:showWidget(0,1)">Recent</a></li>
+  <li><a href="javascript:showWidget(1,1)">Popular</a></li>
+  </ul>
+  </div>
+ 
+  <!-- Question -->
+  
+
+ 
+ 
+  <!-- / Question -->
+   <!-- Question -->
+   <div class="questionRow" *ngFor="let data of dataa" >
+  
+    <div class="questionBox">
+    <div class="memberIcon">
+    <a href="profile/demouser/index.html">
+    <img alt='' src='http://1.gravatar.com/avatar/d803c25b8e919b3d843a5b8e14744575?s=50&amp;d=http%3A%2F%2Fwordpressqa.com%2Frobust-qa%2Fwp-content%2Fthemes%2Frobust-qa%2Fimages%2Fdefault-user-avatar-2.jpg&amp;r=g' srcset='http://1.gravatar.com/avatar/d803c25b8e919b3d843a5b8e14744575?s=100&#038;d=http%3A%2F%2Fwordpressqa.com%2Frobust-qa%2Fwp-content%2Fthemes%2Frobust-qa%2Fimages%2Fdefault-user-avatar-2.jpg&#038;r=g 2x' class='avatar avatar-50 photo' height='50' width='50' />                                            
+    </a>
+    </div>
+    <div class="contentText">
+    <h4>{{dataa.emp_id}}</h4>
+    <p class="bylineCategory">In :{{dataa.tag_name}} | December 7, 2017</p>
+    </div>
+    <div class="clear"></div>
+    </div>
+    <div class="bylineBox"><a href="career/teste/index.html#respond"></a>
+    <span><img src="/assets/images/answer-count-icon.jpg" />
+    No Answers
+    </span>
+    </div>
+    <div class="bylineBox3"><a href="profile/demouser/index.html">
+    <span>najeer<img src="/assets/images/blue-star-sm.jpg" alt="Blue" title="Blue" />82</span></a></div>
+    <div class="clear"></div>
+    </div>
+    <!-- / Question -->
+
+  </div>
+</div>
+ 
+ 
+
+  
+  <!-- Tabs Content Blocks -->
+  
+ 
+  <!-- Recent / Popular Questions Section -->
+ 
+  <!-- / Left Inner Column -->
+  
+  <!-- Right Inner Column -->
+ 
+  <div id="rightColInner" class="left">
+  <!-- Dynamic Sidebar -->
+  
+  <div class="sidebarList sidebarSearch">
+  <h4>Search</h4>
+  <form method="get" id="searchform" action="#" >
+  <input type="text" name="s" id="s" tabindex="10" />
+  <select name="cat" id="searchWidget" class="postform"  tabindex="11">
+  <option value="-1">All Categories</option>
+  <option class="level-0" value="19">html</option>
+  <option class="level-0" value="18">css</option>
+  <option class="level-0" value="15">java</option>
+  <option class="level-0" value="16">Hadoop</option>
+  <option class="level-0" value="17">phython</option>
+  <option class="level-0" value="14">angular</option>
+  <option class="level-0" value="13">javascript</option>
+  <option class="level-0" value="13">big data</option>
+  <option class="level-0" value="13">jquery</option>
+  <option class="level-0" value="13">hibernet</option>
+  </select>
+  <input type="submit" value="Search" tabindex="8" />
+  </form>
+  </div>
+  <div class="clear"></div>
+  <div class="popularCateogries sidebarList2Col"><h4>Popular Categories</h4><ul class="wp-tag-cloud" role="list">
+  <li><a href="category/food-and-wine/index.html" class="tag-cloud-link tag-link-15 tag-link-position-1" style="font-size: 13px;">html</a></li>
+  <li><a href="category/health/index.html" class="tag-cloud-link tag-link-16 tag-link-position-2" style="font-size: 13px;">css</a></li>
+  <li><a href="category/hobbies/index.html" class="tag-cloud-link tag-link-17 tag-link-position-3" style="font-size: 13px;">java</a></li>
+  <li><a href="category/travel/index.html" class="tag-cloud-link tag-link-13 tag-link-position-4" style="font-size: 13px;">hadoop</a></li>
+  <li><a href="category/home-improvement/index.html" class="tag-cloud-link tag-link-14 tag-link-position-5" style="font-size: 13px;">phython</a></li>
+  <li><a href="category/education/index.html" class="tag-cloud-link tag-link-18 tag-link-position-6" style="font-size: 13px;">angular</a></li>
+  <li><a href="category/career/index.html" class="tag-cloud-link tag-link-19 tag-link-position-7" style="font-size: 13px;">javascript</a></li>
+  <li><a href="category/career/index.html" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 13px;">big data</a></li>
+  <li><a href="category/career/index.html" class="tag-cloud-link tag-link-19 tag-link-position-9" style="font-size: 13px;">jquery</a></li>
+  <li><a href="category/career/index.html" class="tag-cloud-link tag-link-19 tag-link-position-10" style="font-size: 13px;">hibernet</a></li>
+  </ul>
+  <div class="clear"></div>
+  </div>		
+ 
+  <!-- / Right Inner Column -->
+  
+  <div class="mainContentBottom">
+  </div>
+  
+  <!-- / Center Column -->
+
+  </div>
+  </div>
+          <div class="clearfix"> </div>
+  <!--end question-ans-->
+
+  
+
+
+  <!--end of the body-->

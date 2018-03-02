@@ -1,0 +1,73 @@
+<div *ngIf="successMessage" class="alert alert-success">Registration Successful
+  <br>
+  <a [routerLink]="['/login']">{{successMessage}}</a>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}</div>
+
+
+<div style="margin-top: 50px;margin-bottom: 50px">
+  <div class="col-md-offset-3">
+    <h3 class="agileinfo_sign">Sign Up</h3>
+    <div class="agileits_signin_form">
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form); registrationForm.reset();" #registrationForm="ngForm" novalidate>
+        <input type="text" name="fname" placeholder="First Name" required maxlength="20" formControlName="fname">
+        <div [hidden]="!form.controls.fname.errors.maxlength" class="alert alert-danger">
+          First Name Maximum Length is {{form.controls.fname.errors.maxlength?.requiredLength}}
+      </div>
+      
+          <!-- <div *ngIf="form.errors && (form.dirty || form.touched)" class="alert alert-danger">
+            <div [hidden]="!form.errors.required">
+              Book title is required!
+            </div>
+            <div [hidden]="!form.errors.minlength">
+              Title must be at least 5 characters long.
+            </div>
+            <div [hidden]="!form.errors.maxlength">
+              Title cannot be more than 30 characters long.
+            </div>
+          </div> -->
+       
+
+
+
+        <input type="text" name="lname" placeholder="Last Name" required maxLength="20" formControlName="lname">
+          <div [hidden]="!form.controls.lname.errors.maxlength" class="alert alert-danger">
+            Last Name Maximum Length is {{form.controls.lname.errors.maxlength?.requiredLength}}
+        </div>
+         
+
+        <input type="email" name="emailId" placeholder="Your Email" required maxlength="32" formControlName="emailId">
+        <div *ngIf="!form.controls['emailId'].valid && form.controls['emailId'].touched" class="alert alert-danger">
+          Please enter an emailId</div>
+          
+
+        <input type="password" name="pwd" placeholder="Password" required maxlength="12" formControlName="pwd">
+        <div *ngIf="!form.controls['pwd'].valid && form.controls['pwd'].touched" class="alert alert-danger">
+          Please enter an valid  Password</div>
+         
+         
+
+        <input type="password" name="password" placeholder="Confirm Password" required minlength="8" maxlength="12" formControlName="password">
+        <div *ngIf="!form.controls['password'].valid && form.controls['password'].touched" class="alert alert-danger">
+          Please enter an Confirm Password</div>
+         
+
+        <input type="text" id="name" name="mobileNo" placeholder="Enter Phone number" title="Please enter your Phone No" required=""
+          formControlName="mobileNo">
+        <input type="text" id="address" name="address" placeholder="Enter your address" title="Please enter your address" required=""
+          formControlName="address">
+        <label id="gender" name="gender" style="align-items: left;"> Gender :
+          <input type="radio" name="gender" value="male" required="" formControlName="gender" checked> Male
+          <input type="radio" name="gender" value="female" formControlName="gender"> Female
+          <br>
+        </label>
+        <br>
+        <input type="text" name="dob" id="datepicker"  placeholder="Enter DOB" required="" formControlName="dob">
+        <br>
+        <input type="text" id="name1" name="state" placeholder="state" size="14" required="" formControlName="state">
+        <input type="text" id="name2" name="country" placeholder="country" required="" formControlName="country">
+        <button type="submit" class="btn btn-success">SIGN UP</button>
+        <br>
+      </form>
+  </div>
+</div>
