@@ -19,8 +19,8 @@
             First Name length is 20 characters!
           </div>
           <div *ngIf="form.get('fname').hasError('pattern')">
-              Invalid First Name!
-            </div>
+            Invalid First Name!
+          </div>
         </div>
 
 
@@ -33,8 +33,8 @@
             Last Name length is 20 characters!
           </div>
           <div *ngIf="form.get('lname').hasError('pattern')">
-              Invalid First Name!
-            </div>
+            Invalid First Name!
+          </div>
         </div>
 
         <!-- <div [hidden]="!form.controls.lname.errors.maxlength" class="alert alert-danger">
@@ -45,16 +45,16 @@
         <input type="email" name="emailId" placeholder="Your Email" required maxlength="32" formControlName="emailId">
         <div *ngIf="form.get('emailId').touched && form.get('emailId').invalid" class="alert alert-danger">
           <div *ngIf="form.get('emailId').hasError('required')">
-              Email Id is Required
+            Email Id is Required
           </div>
           <!-- <div *ngIf="form.get('emailId').hasError('email')">
             Invalid Email Id!
           </div> -->
           <div *ngIf="form.get('emailId').hasError('pattern')">
-              Invalid EmailId!
-            </div>
+            Invalid EmailId!
+          </div>
         </div>
-        
+
         <!-- <div *ngIf="!form.controls['emailId'].valid && form.controls['emailId'].touched" class="alert alert-danger">
           Please enter an emailId</div>
            -->
@@ -80,22 +80,22 @@
         <div *ngIf="form.get('password').touched && form.get('password').invalid " class="alert alert-danger">
           <div *ngIf="form.get('password').hasError('required')">
             Confirm Password is Required
-            </div>
-            <div *ngIf="form.get('password').hasError('maxlength')">
-              Confirm Password length is more than 12 charcters!
-            </div>
-            <div *ngIf="form.get('password').hasError('minlength')">
-              Confirm Password length is less than 8 charcters!
-            </div>
           </div>
+          <div *ngIf="form.get('password').hasError('maxlength')">
+            Confirm Password length is more than 12 charcters!
+          </div>
+          <div *ngIf="form.get('password').hasError('minlength')">
+            Confirm Password length is less than 8 charcters!
+          </div>
+        </div>
         <!-- <div *ngIf="!form.controls['password'].valid && form.controls['password'].touched" class="alert alert-danger">
           Please enter an Confirm Password</div> -->
 
 
         <input type="text" id="name" name="mobileNo" placeholder="Enter Phone number" title="Please enter your Phone No" required
-          maxlength="10" formControlName="mobileNo">
+          maxlength="11" formControlName="mobileNo">
         <div *ngIf="form.get('mobileNo').touched && form.get('mobileNo').invalid" class="alert alert-danger">
-          <div *ngIf="form.get('mobileNo').hasError('required')">
+          <!-- <div *ngIf="form.get('mobileNo').hasError('required')">
             Mobile number is Required
           </div>
           <div *ngIf="form.get('mobileNo').hasError('minlength')">
@@ -104,6 +104,27 @@
           <div *ngIf="form.get('mobileNo').hasError('maxlength')">
             More than 10 digit!
           </div>
+          <div *ngIf="form.get('mobileNo').hasError('pattern')">
+              Invalid Mobile Number!
+            </div> -->
+          <div *ngIf="form.get('mobileNo').hasError('required')">
+            Mobile number is Required
+          </div>
+          <div *ngIf="form.get('mobileNo').hasError('pattern')">
+            Invalid Mobile Number!
+          </div>
+          <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('minlength')">
+          <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('maxlength')">
+            
+            <div *ngIf="form.get('mobileNo').hasError('minlength')">
+              Less than 10 digit!
+            </div>
+            <div *ngIf="form.get('mobileNo').hasError('maxlength')">
+              More than 10 digit!
+            </div>
+          </div>
+          </div>
+          
         </div>
 
 
