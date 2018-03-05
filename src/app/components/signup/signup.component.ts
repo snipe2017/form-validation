@@ -20,13 +20,13 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
      this.form = this.fb.group({  
 
-     fname: ['', [Validators.required, Validators.pattern('^[a-z][A-Z]{20}$'), Validators.maxLength(15)]],
-      lname: ['', [Validators.required, Validators.maxLength(15)]],
+     fname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+'), Validators.maxLength(20)]],
+      lname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+'),  Validators.maxLength(20)]],
       emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-      pwd: ['', [Validators.required, Validators.maxLength(12)]],
-      password:  ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
+      pwd: ['', [Validators.required, Validators.minLength(8),Validators.maxLength(12)]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(12)]],
       address: ['', Validators.required],
-      mobileNo: ['', Validators.required, [Validators.pattern('^[1-9][0-9]$')]],
+      mobileNo: ['', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10),Validators.maxLength(10)]],
      gender:['', Validators.required],
       dob:['' , Validators.required],
       state:['', Validators.required],
