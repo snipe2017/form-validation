@@ -54,7 +54,7 @@ import { AuthGuard } from './auth.guard';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
 ],
   providers: [UserService, AuthGuard, Auth1Guard],
   bootstrap: [AppComponent]

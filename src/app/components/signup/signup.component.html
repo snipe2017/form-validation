@@ -9,7 +9,7 @@
   <div class="col-md-offset-3">
     <h3 class="agileinfo_sign">Sign Up</h3>
     <div class="agileits_signin_form">
-      <form [formGroup]="form" (ngSubmit)="onSubmit(form); registrationForm.reset();" #registrationForm="ngForm" novalidate>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form); registrationForm.reset();" #registrationForm="ngForm">
         <input type="text" name="fname" placeholder="First Name" required maxlength="21" formControlName="fname">
         <div *ngIf="form.get('fname').touched && form.get('fname').invalid " class="alert alert-danger">
           <div *ngIf="form.get('fname').hasError('required')">
@@ -22,8 +22,6 @@
             Invalid First Name!
           </div>
         </div>
-
-
         <input type="text" name="lname" placeholder="Last Name" required maxLength="21" formControlName="lname">
         <div *ngIf="form.get('lname').touched && form.get('lname').invalid " class="alert alert-danger">
           <div *ngIf="form.get('lname').hasError('required')">
@@ -37,27 +35,17 @@
           </div>
         </div>
 
-        <!-- <div [hidden]="!form.controls.lname.errors.maxlength" class="alert alert-danger">
-            Last Name Maximum Length is {{form.controls.lname.errors.maxlength?.requiredLength}}
-        </div> -->
-
 
         <input type="email" name="emailId" placeholder="Your Email" required maxlength="32" formControlName="emailId">
         <div *ngIf="form.get('emailId').touched && form.get('emailId').invalid" class="alert alert-danger">
           <div *ngIf="form.get('emailId').hasError('required')">
             Email Id is Required
           </div>
-          <!-- <div *ngIf="form.get('emailId').hasError('email')">
-            Invalid Email Id!
-          </div> -->
+
           <div *ngIf="form.get('emailId').hasError('pattern')">
             Invalid EmailId!
           </div>
         </div>
-
-        <!-- <div *ngIf="!form.controls['emailId'].valid && form.controls['emailId'].touched" class="alert alert-danger">
-          Please enter an emailId</div>
-           -->
 
         <input type="password" name="pwd" placeholder="Password" required maxlength="13" formControlName="pwd">
         <div *ngIf="form.get('pwd').touched && form.get('pwd').invalid" class="alert alert-danger">
@@ -71,12 +59,8 @@
             Password length is less than 8 charcters!
           </div>
         </div>
-        <!-- <div *ngIf="!form.controls['pwd'].valid && form.controls['pwd'].touched" class="alert alert-danger">
-          Please enter an valid  Password</div> -->
 
-
-
-        <input type="password" name="password" placeholder="Confirm Password" required maxlength="13" formControlName="password">
+        <input type="password" name="password" placeholder="Confirm Password" required validateEqual="pwd" required maxlength="13" formControlName="password">
         <div *ngIf="form.get('password').touched && form.get('password').invalid " class="alert alert-danger">
           <div *ngIf="form.get('password').hasError('required')">
             Confirm Password is Required
@@ -87,26 +71,15 @@
           <div *ngIf="form.get('password').hasError('minlength')">
             Confirm Password length is less than 8 charcters!
           </div>
+          <div [hidden]="password.valid ||  
+          (password.pristine && !form.submitted)">
+          Password mismatch
         </div>
-        <!-- <div *ngIf="!form.controls['password'].valid && form.controls['password'].touched" class="alert alert-danger">
-          Please enter an Confirm Password</div> -->
-
-
+        </div>
+        
         <input type="text" id="name" name="mobileNo" placeholder="Enter Phone number" title="Please enter your Phone No" required
           maxlength="11" formControlName="mobileNo">
         <div *ngIf="form.get('mobileNo').touched && form.get('mobileNo').invalid" class="alert alert-danger">
-          <!-- <div *ngIf="form.get('mobileNo').hasError('required')">
-            Mobile number is Required
-          </div>
-          <div *ngIf="form.get('mobileNo').hasError('minlength')">
-            Less than 10 digit!
-          </div>
-          <div *ngIf="form.get('mobileNo').hasError('maxlength')">
-            More than 10 digit!
-          </div>
-          <div *ngIf="form.get('mobileNo').hasError('pattern')">
-              Invalid Mobile Number!
-            </div> -->
           <div *ngIf="form.get('mobileNo').hasError('required')">
             Mobile number is Required
           </div>
@@ -114,25 +87,18 @@
             Invalid Mobile Number!
           </div>
           <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('minlength')">
-          <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('maxlength')">
-            
-            <div *ngIf="form.get('mobileNo').hasError('minlength')">
-              Less than 10 digit!
-            </div>
-            <div *ngIf="form.get('mobileNo').hasError('maxlength')">
-              More than 10 digit!
+            <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('maxlength')">
+
+              <div *ngIf="form.get('mobileNo').hasError('minlength')">
+                Less than 10 digit!
+              </div>
+              <div *ngIf="form.get('mobileNo').hasError('maxlength')">
+                More than 10 digit!
+              </div>
             </div>
           </div>
-          </div>
-          
+
         </div>
-
-
-        <!-- <input type="text" id="address" name="address" placeholder="Enter your address" title="Please enter your address" required=""
-          formControlName="address">
-        <div *ngIf="form.get('address').hasError('required') && form.get('address').touched" class="alert alert-danger"> Addresse is Required</div> -->
-
-
         <label id="gender" name="gender" style="align-items: left;"> Gender :
           <input type="radio" name="gender" value="male" required="" formControlName="gender" checked> Male
           <input type="radio" name="gender" value="female" formControlName="gender"> Female
@@ -141,17 +107,18 @@
         <br>
         <div *ngIf="form.get('gender').hasError('required') && form.get('gender').touched" class="alert alert-danger">Gender is Required</div>
 
-        <input type="text" name="dob" id="datepicker" placeholder="Enter DOB" required="" formControlName="dob">
+        <input type="date" name="dob" placeholder="Enter DOB" required="" formControlName="dob">
         <br>
         <div *ngIf="form.get('dob').hasError('required') && form.get('dob').touched" class="alert alert-danger"> Date of birth is required is Required</div>
+        <br>
+        <!-- <input type="text" id="name1" name="state" placeholder="state" size="14" required="" formControlName="state">
+        <div *ngIf="form.get('state').hasError('required') && form.get('state').touched" class="alert alert-danger"> State is Required</div> -->
+        <input type="text" id="country" name="country" placeholder="country" formControlName="country">
 
-        <input type="text" id="name1" name="state" placeholder="state" size="14" required="" formControlName="state">
-        <div *ngIf="form.get('state').hasError('required') && form.get('state').touched" class="alert alert-danger"> State is Required</div>
 
-        <input type="text" id="name2" name="country" placeholder="country" required="" formControlName="country">
         <div *ngIf="form.get('country').hasError('required') && form.get('country').touched" class="alert alert-danger"> Country is Required</div>
 
-        <button type="submit" class="btn btn-success" [disabled]="form.invalid">SIGN UP</button>
+        <button type="submit" class="btn btn-success">SIGN UP</button>
         <br>
       </form>
     </div>

@@ -199,6 +199,7 @@ button.close {
     border: 1px solid #bfbfbf;
     letter-spacing: 1px;
     text-align: left;
+    background-color: #f5f5f5;
 }
 
 .agileits_signin_form input[type="text"] {
@@ -247,6 +248,7 @@ button.close {
     font-size: 2em;
     color: #23B684;
     margin-bottom: 1em;
+    margin-left: 42px;
     text-transform: uppercase;
 }
 

@@ -16,10 +16,10 @@ export class SignupComponent implements OnInit {
   form: FormGroup;
   successMessage:string = '';
   errorMessage:string = '';
+  
  constructor(private fb: FormBuilder, private router : Router, private userService : UserService){}
   ngOnInit() {
      this.form = this.fb.group({  
-
      fname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+'), Validators.maxLength(20)]],
       lname: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+'),  Validators.maxLength(20)]],
       emailId: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
       mobileNo: ['', [Validators.required, Validators.pattern('[0-9]*'), Validators.minLength(10),Validators.maxLength(10)]],
      gender:['', Validators.required],
       dob:['' , Validators.required],
-      state:['', Validators.required],
+      // state:['', Validators.required],
       country:['', Validators.required]
     });
     
@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
   onSubmit() {
    this.successMessage = '';  
    this.errorMessage = '';
+   console.log(this.form.value);
     this.userService.signUpUser(this.form.value)
     .subscribe( 
       (data) => { console.log(data);
@@ -53,6 +54,7 @@ export class SignupComponent implements OnInit {
       () => console.log('success')  
     );
   }
+  
 }
 //     console.log("data in component"+JSON.stringify(this.form.value));
 //     this.call();

@@ -3006,6 +3006,9 @@ select[multiple].form-group-lg .form-control {
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+  margin-left: 3px;
+  margin-top: 2px;
+  
 }
 .btn:focus,
 .btn:active:focus,
@@ -4988,6 +4991,7 @@ a.thumbnail.active {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
+  padding: 0px;
 }
 .alert-danger hr {
   border-top-color: #e4b9c0;
