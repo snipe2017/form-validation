@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('snipe-community App', () => {
+describe('signup-validation App', () => {
   let page: AppPage;
 
   beforeEach(() => {

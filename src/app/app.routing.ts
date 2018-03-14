@@ -1,41 +1,42 @@
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { NgModule } from '@angular/core';
-import { HeaderComponent } from './components/header/header.component';
-import { SignupComponent } from './components/signup/signup.component';
-import { AboutusComponent } from './components/aboutus/aboutus.component';
-import { BlogComponent } from './components/blog/blog.component';
-import { TagsComponent } from './components/tags/tags.component';
-import { ContactComponent } from './components/contact/contact.component';
-import { AuthGuard } from './auth.guard';
-import { AskComponent } from './components/ask/ask.component';
-// import { DashboardComponent } from './components/dashboard/dashboard.component';
-// import { EmpdashboardComponent } from './components/empdashboard/empdashboard.component';
+import {AboutComponent} from './componets/about/about.component';
+import {AdmindashboardComponent} from './componets/admindashboard/admindashboard.component';
+import { AskComponent } from './componets/ask/ask.component';
+import { BlogComponent } from './componets/blog/blog.component';
+import {ContactComponent} from './componets/contact/contact.component';
+import {EmpdashboardComponent} from './componets/empdashboard/empdashboard.component';
+import {HomeComponent} from './componets/home/home.component';
+import {LoginComponent} from './componets/login/login.component';
+import {SignupComponent} from './componets/signup/signup.component';
+import {TagsComponent} from './componets/tags/tags.component';
+import { HeaderComponent } from './componets/header/header.component';
+import { FooterComponent } from './componets/footer/footer.component';
+
+
 
 const appRoutes: Routes = [
-   { path: 'login', component: LoginComponent},
-   { path: 'signup', component: SignupComponent},
-   { path: '', component: HeaderComponent,
-    children: [ 
-      { path: 'home', component: HomeComponent},
-      { path: 'about', component: AboutusComponent},
-      { path: 'blog', component: BlogComponent},
-      { path: 'tag', component: TagsComponent},
-      { path: 'contact', component: ContactComponent},
-      { path: 'ask', component: AskComponent},
-      // { path: 'dashboard', component: DashboardComponent},
-      // { path: 'empdashboard', component: EmpdashboardComponent},
-      ]}
-  ];
+    // {path: 'about', component: AboutComponent},
+    {path: 'admindashboard', component: AdmindashboardComponent},
+    {path: 'ask', component: AskComponent},
+    {path: 'blog', component: BlogComponent},
+    {path: 'contact', component: ContactComponent},
+    {path: 'empdashboard', component: EmpdashboardComponent},
+    {path: '', component: HomeComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'signup', component: SignupComponent},
+    {path: 'tags', component: TagsComponent},
+    {path: 'header', component: HeaderComponent},
+    {path: 'footer', component: FooterComponent}
+];
 
-  @NgModule({
-    imports: [
-      RouterModule.forRoot(appRoutes, { useHash: true })
+@NgModule({
+    imports:[
+        RouterModule.forRoot(appRoutes,{ useHash: true })
     ],
     exports: [
-      RouterModule
+        RouterModule
     ]
-  })
+})
 
-  export class AppRoutingModule {}
+export class ApproutingModule {}

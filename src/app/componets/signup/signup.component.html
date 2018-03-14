@@ -1,0 +1,177 @@
+<div *ngIf="successMessage" class="alert alert-success">Registration Successful
+  <br>
+  <a [routerLink]="['/login']">{{successMessage}}</a>
+</div>
+<div class="container">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{errorMessage}}
+  </div>
+</div>
+<div style=" background-image: url('./assets/images/rethink-target-heart-rate-number-ftr.jpg')">
+  <div class="container">
+
+    <div class="form-horizontal" role="form">
+      <h2>Registration</h2>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form);  registrationForm.reset();" #registrationForm="ngForm">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">FirstName</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="firstName" name="fname" placeholder="First Name" required maxlength="21" formControlName="fname"
+              autofocus>
+            <div *ngIf="form.get('fname').touched && form.get('fname').invalid " class="alert alert-danger">
+              <div *ngIf="form.get('fname').hasError('required')">
+                First Name is Required
+              </div>
+              <div *ngIf="form.get('fname').hasError('maxlength')">
+                First Name length is 20 characters!
+              </div>
+              <div *ngIf="form.get('fname').hasError('pattern')">
+                Invalid First Name!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+          <div class="col-sm-9">
+            <input type="text" name="lname" class="form-control" id="lastName" autofocus placeholder="Last Name" required maxLength="21"
+              formControlName="lname">
+            <div *ngIf="form.get('lname').touched && form.get('lname').invalid " class="alert alert-danger">
+              <div *ngIf="form.get('lname').hasError('required')">
+                Last Name is Required
+              </div>
+              <div *ngIf="form.get('lname').hasError('maxlength')">
+                Last Name length is 20 characters!
+              </div>
+              <div *ngIf="form.get('lname').hasError('pattern')">
+                Invalid First Name!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="col-sm-3 control-label">Email* </label>
+          <div class="col-sm-9">
+            <input type="email" name="emailId" placeholder="Your Email" id="email" class="form-control" required maxlength="32" formControlName="emailId">
+            <div *ngIf="form.get('emailId').touched && form.get('emailId').invalid" class="alert alert-danger">
+              <div *ngIf="form.get('emailId').hasError('required')">
+                Email Id is Required
+              </div>
+
+              <div *ngIf="form.get('emailId').hasError('pattern')">
+                Invalid EmailId!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-3 control-label">Password*</label>
+          <div class="col-sm-9">
+            <input type="password" id="password" class="form-control" name="cpwd" placeholder="Password" required maxlength="13" formControlName="cpwd">
+            <div *ngIf="form.get('cpwd').touched && form.get('cpwd').invalid" class="alert alert-danger">
+              <div *ngIf="form.get('cpwd').hasError('required')">
+                Password is Required
+              </div>
+              <div *ngIf="form.get('cpwd').hasError('maxlength')">
+                Password length is more than 12 charcters!
+              </div>
+              <div *ngIf="form.get('cpwd').hasError('minlength')">
+                Password length is less than 8 charcters!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-3 control-label">Confirm Password*</label>
+          <div class="col-sm-9">
+            <input type="password" id="pwd" class="form-control" name="pwd" placeholder="Confirm Password" required validateEqual="cpwd"
+              required maxlength="13" formControlName="pwd">
+            <div *ngIf="form.get('pwd').touched && form.get('pwd').invalid " class="alert alert-danger">
+              <div *ngIf="form.get('pwd').hasError('required')">
+                Confirm Password is Required
+              </div>
+              <div *ngIf="form.get('pwd').hasError('maxlength')">
+                Confirm Password length is more than 12 charcters!
+              </div>
+              <div *ngIf="form.get('pwd').hasError('minlength')">
+                Confirm Password length is less than 8 charcters!
+              </div>
+              <div [hidden]="pwd.valid ||  (pwd.pristine && !form.submitted)">
+                Password mismatch
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phoneNumber" class="col-sm-3 control-label">Phone number </label>
+          <div class="col-sm-9">
+            <input type="text" id="phoneNumber" class="form-control" name="mobileNo" placeholder="Enter Phone number" required maxlength="11"
+              formControlName="mobileNo">
+            <div *ngIf="form.get('mobileNo').touched && form.get('mobileNo').invalid" class="alert alert-danger">
+              <div *ngIf="form.get('mobileNo').hasError('required')">
+                Mobile number is Required
+              </div>
+              <div *ngIf="form.get('mobileNo').hasError('pattern')">
+                Invalid Mobile Number!
+              </div>
+              <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('minlength')">
+                <div *ngIf="!form.get('mobileNo').hasError('pattern') || form.get('mobileNo').hasError('maxlength')">
+
+                  <div *ngIf="form.get('mobileNo').hasError('minlength')">
+                    Less than 10 digit!
+                  </div>
+                  <div *ngIf="form.get('mobileNo').hasError('maxlength')">
+                    More than 10 digit!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-3">Gender</label>
+          <div class="col-sm-6">
+            <div class="row">
+              <div class="col-sm-4">
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="maleRadio" value="male" required="" formControlName="gender" checked> Male
+                </label>
+              </div>
+              <div class="col-sm-4">
+                <label class="radio-inline">
+                  <input type="radio" name="gender" id="femaleRadio" value="female" formControlName="gender"> Female
+                </label>
+              </div>
+            </div>
+            <div *ngIf="form.get('gender').hasError('required') && form.get('gender').touched" class="alert alert-danger">Gender is Required</div>
+          </div>
+        </div>
+        <!-- <input type="date" name="dob" placeholder="Enter DOB" required="" formControlName="dob">
+        <br>
+        <div *ngIf="form.get('dob').hasError('required') && form.get('dob').touched" class="alert alert-danger"> Date of birth is required is Required</div>
+        <br> -->
+        <!-- <input type="text" id="name1" name="state" placeholder="state" size="14" required="" formControlName="state">
+        <div *ngIf="form.get('state').hasError('required') && form.get('state').touched" class="alert alert-danger"> State is Required</div> -->
+        <!-- <input type="text" id="country" name="country" placeholder="country" formControlName="country"> -->
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Country* </label>
+          <div class="col-sm-9">
+            <select id="country" formControlName="country">
+              <option *ngFor="let c of countries" [ngValue]="c">{{ c }}</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- <div *ngIf="form.get('country').hasError('required') && form.get('country').touched" class="alert alert-danger"> Country is Required</div> -->
+
+        <button type="submit" class="btn btn-success  btn-block">SIGN UP</button>
+        <br>
+      </form>
+    </div>
+  </div>
